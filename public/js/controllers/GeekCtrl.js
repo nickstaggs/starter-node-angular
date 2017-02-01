@@ -1,11 +1,40 @@
-angular.module('GeekCtrl', []).controller('GeekController', function($scope) {
+angular.module('GeekCtrl', []).controller('GeekController', function($scope, $http) {
+
+	// var mongoose = require('mongoose');
+	// var db = require('./config/db.js');
+	// mongoose.connect(db.url);
+	// var nerd = mongoose.model("Nerd", { name: String });
 
 	$scope.tagline = 'The square root of life is pi!';
 	$scope.title = "Geek Cities";
 
-	$scope.submit - function() {
-		if ($scope.text) {
-
+	$scope.submit = function() {
+		if ($scope.formData) {
+			console.log($scope.formData.text);
+			$http.post('/api/nerds', $scope.formData).then(function successCallback(response) {
+				console.log("success");
+				$scope.text = "";
+			},
+		function errorCallback(response) {
+			console.log(response);
+		});
+	// 	$http({
+  //   method: 'POST',
+  //   url: '/api/nerds',
+  //   data: $scope.text,
+  //   headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+  //   transformRequest: function(obj) {
+  //     var str = [];
+  //     for(var p in obj)
+  //     str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+  //     return str.join("&");
+  //   }
+  // }).then(function successCallback(response) {
+	// 	console.log("success");
+	// },
+	// function errorCallback(response) {
+	// 	console.log(response);
+	// });
 		}
 	};
 });
