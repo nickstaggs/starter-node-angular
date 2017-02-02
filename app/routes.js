@@ -8,27 +8,29 @@ module.exports = function(app) {
 	// authentication routes
 	app.get('/api/nerds', function(req, res) {
             // use mongoose to get all nerds in the database
-      // Nerd.find(function(err, nerds) {
-			//
-      //     // if there is an error retrieving, send the error.
-      //                     // nothing after res.send(err) will execute
-      //     if (err)
-      //         res.send(err);
-			//
-      //     res.json(nerds); // return all nerds in JSON format
-      // });
-			res.json("Momma we made it... to the db");
+      Nerd.find(function(err, nerds) {
+
+          // if there is an error retrieving, send the error.
+                          // nothing after res.send(err) will execute
+          if (err)
+              res.send(err);
+
+          res.json(nerds); // return all nerds in JSON format
+      });
+			//res.json("Momma we made it... to the db");
   });
 
 // API POST
 app.post('/api/nerds', function(req, res) {
-	Nerd.create({name: 'bob'}, function(err, body) {
-		if(err) {
-			console.log(err);
-			res.send(err);
-		}
-		return req;
-	});
+	// Nerd.create({name: 'bob'}, function(err, body) {
+	// 	if(err) {
+	// 		console.log(err);
+	// 		res.send(err);
+	// 	}
+	// 	res.send("success");
+	//
+	// });
+	res.send(req);
 });
 
 	// frontend routes =========================================================

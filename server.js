@@ -4,7 +4,7 @@ var app            = express();
 var mongoose       = require('mongoose');
 var bodyParser     = require('body-parser');
 var methodOverride = require('method-override');
-var morgan = require('morgan');
+//var morgan = require('morgan');
 
 // configuration ===========================================
 
@@ -18,7 +18,7 @@ mongoose.connect(db.url); // connect to our mongoDB database (commented out afte
 app.use(bodyParser.json()); // parse application/json
 app.use(bodyParser.json({ type: 'application/vnd.api+json' })); // parse application/vnd.api+json as json
 app.use(bodyParser.urlencoded({ extended: true })); // parse application/x-www-form-urlencoded
-app.use(morgan('dev'));
+//app.use(morgan('dev'));
 app.use(methodOverride()); // override with the X-HTTP-Method-Override header in the request. simulate DELETE/PUT
 app.use(express.static(__dirname + '/public')); // set the static files location /public/img will be /img for users
 

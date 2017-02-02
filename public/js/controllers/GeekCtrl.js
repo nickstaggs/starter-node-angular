@@ -10,10 +10,11 @@ angular.module('GeekCtrl', []).controller('GeekController', function($scope, $ht
 
 	$scope.submit = function() {
 		if ($scope.formData) {
-			console.log($scope.formData.text);
-			$http.post('/api/nerds', $scope.formData).then(function successCallback(response) {
-				console.log("success");
-				$scope.text = "";
+			var stuff = $scope.formData.text;
+			console.log(stuff);
+			$http.post('/api/nerds', stuff).then(function successCallback(response) {
+				console.log(response);
+				$scope.formData.text = "";
 			},
 		function errorCallback(response) {
 			console.log(response);
