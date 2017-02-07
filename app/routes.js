@@ -22,15 +22,15 @@ module.exports = function(app) {
 
 // API POST
 app.post('/api/nerds', function(req, res) {
-	// Nerd.create({name: 'bob'}, function(err, body) {
-	// 	if(err) {
-	// 		console.log(err);
-	// 		res.send(err);
-	// 	}
-	// 	res.send("success");
-	//
-	// });
-	res.send(req);
+	Nerd.create({name: 'bob'}, function(err, body) {
+		if(err) {
+			console.log(err);
+			res.send(err);
+		}
+		res.send("success");
+	
+	});
+	//res.send("sent");
 });
 
 	// frontend routes =========================================================

@@ -12,7 +12,7 @@ angular.module('GeekCtrl', []).controller('GeekController', function($scope, $ht
 		if ($scope.formData) {
 			var stuff = $scope.formData.text;
 			console.log(stuff);
-			$http.post('/api/nerds', stuff).then(function successCallback(response) {
+			$http.post('/api/nerds', {name: "dan"}).then(function successCallback(response) {
 				console.log(response);
 				$scope.formData.text = "";
 			},
